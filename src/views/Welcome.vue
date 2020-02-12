@@ -3,7 +3,7 @@
     <span class="welcome__logo">🍕</span>
     <h1 class="welcome__title">{{title}}</h1>
     <span class="welcome__invite" v-html="invite"></span>
-    <router-link to="/pizza" tag="button" class="welcome__button">Start</router-link>
+    <router-link to="/pizza" tag="button" class="button welcome__button">Start</router-link>
   </section>
 </template>
 <script>
@@ -25,6 +25,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../scss/global-styles";
 .welcome {
   position: absolute;
   top: 50%;
@@ -63,13 +64,6 @@ export default {
   &__button {
     width: 140px;
     height: 48px;
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: bold;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
     margin-top: 40px;
   }
 }
