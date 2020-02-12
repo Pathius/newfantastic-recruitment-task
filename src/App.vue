@@ -22,4 +22,15 @@ export default Vue.extend({
   padding: 0;
   font-family: "Rubik";
 }
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background: #f5f5f5;
+  overflow: hidden;
+}
 </style>
