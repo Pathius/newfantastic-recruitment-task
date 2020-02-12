@@ -7,8 +7,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'welcome',
     component: () => import('../views/Welcome.vue')
+  },
+  {
+    path: '/pizza',
+    name: 'pizza',
+    component: () => import('../views/Pizza.vue')
   }
 ]
 
