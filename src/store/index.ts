@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import welcome from './modules/welcome'
+import pizza from './modules/pizza'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    welcome
+    welcome,
+    pizza
   }
 })

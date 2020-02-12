@@ -17,7 +17,7 @@ export default {
     },
     actions: {
         getData: async ({ commit }) => {
-            let response = await fetch(endpointURL)
+            let response = await fetch(endpointURL);
             response = (await response.json())[0];
             commit('setTitle', response.title.rendered)
             commit('setInvite', response.content.rendered)
