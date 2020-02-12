@@ -3,28 +3,24 @@
     <span class="welcome__logo">🍕</span>
     <h1 class="welcome__title">{{title}}</h1>
     <span class="welcome__invite" v-html="invite"></span>
-    <button class="welcome__button">Start</button>
+    <router-link to="/pizza" tag="button" class="welcome__button">Start</router-link>
   </section>
 </template>
-
 <script>
 export default {
   name: "welcome",
-  data() {
-    return {
-      title: "",
-      invite: ""
-    };
+  computed: {
+    title() {
+      return this.$store.state.welcome.title;
+    },
+    invite() {
+      return this.$store.state.welcome.invite;
+    }
   },
-  async created() {
-    let response = await fetch(
-      "https://wp.recruitment.newfantastic.com/wp-json/wp/v2/pages?slug=welcome"
-    );
-    response = await response.json();
-    console.log(response);
-    let { title, content } = response[0];
-    this.$data.title = title.rendered;
-    this.$data.invite = content.rendered;
+  created() {
+    if (this.title === "" && this.invite === "") {
+      this.$store.dispatch("welcome/getData");
+    }
   }
 };
 </script>
@@ -35,6 +31,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 100%;
   &__logo {
     width: 100%;
     font-style: normal;
@@ -49,12 +46,19 @@ export default {
     line-height: 42px;
     text-transform: uppercase;
     margin: 40px 0;
+    @media screen and (max-width: 768px) {
+      font-size: 32px;
+      padding: 0 25px;
+    }
   }
   &__invite {
     font-weight: 500;
     font-size: 26px;
     line-height: 32px;
     color: #7b7b7b;
+    @media screen and (max-width: 768px) {
+      font-size: 23px;
+    }
   }
   &__button {
     width: 140px;
