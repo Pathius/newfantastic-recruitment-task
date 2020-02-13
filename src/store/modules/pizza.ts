@@ -19,7 +19,10 @@ export default {
         getData: async ({ commit }) => {
             let response = await fetch(endpointURL);
             response = await response.json();
-            let sizes = [response[2].acf, response[1].acf, response[0].acf]
+            let sizes = []
+            for (let size of response) {
+                sizes.unshift(size.acf)
+            }
             commit('setSizes', sizes)
         }
     }

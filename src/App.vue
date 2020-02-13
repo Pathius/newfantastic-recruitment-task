@@ -31,6 +31,5 @@ body {
   margin: 0;
   position: relative;
   background: #f5f5f5;
-  overflow: hidden;
 }
 </style>
