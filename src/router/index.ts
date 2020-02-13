@@ -14,6 +14,11 @@ const routes = [
     path: '/pizza',
     name: 'pizza',
     component: () => import('../views/Pizza.vue')
+  },
+  {
+    path: '/customize',
+    name: 'customize',
+    component: () => import('../views/Customize.vue')
   }
 ]
 
