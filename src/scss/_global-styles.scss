@@ -1,3 +1,14 @@
+.title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    text-transform: uppercase;
+    @media screen and (max-width: 768px) {
+        font-size: 32px;
+    }
+}
+
 .button{
     font-size: 20px;
     line-height: 24px;
@@ -6,9 +17,16 @@
     color: white;
     border: none;
     cursor: pointer;
+    box-sizing: border-box;
     &-disabled{
         @extend .button;
         opacity: .4;
         cursor: not-allowed;
+    }
+    &-transparent{
+        @extend .button;
+        background: transparent;
+        border: 1px solid black;
+        color: black;
     }
 }

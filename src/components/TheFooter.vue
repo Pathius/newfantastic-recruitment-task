@@ -3,7 +3,7 @@
     <p class="footer__text">@2020 Pizza Corp LTD</p>
   </footer>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 .footer {
   position: absolute;
   width: 100%;

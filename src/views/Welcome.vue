@@ -1,7 +1,7 @@
 <template>
   <section class="welcome">
     <span class="welcome__logo">🍕</span>
-    <h1 class="welcome__title">{{title}}</h1>
+    <h1 class="title welcome__title">{{title}}</h1>
     <span class="welcome__invite" v-html="invite"></span>
     <router-link to="/pizza" tag="button" class="button welcome__button">Start</router-link>
   </section>
@@ -24,7 +24,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 @import "../scss/global-styles";
 .welcome {
   position: absolute;
@@ -41,14 +41,8 @@ export default {
     line-height: 70px;
   }
   &__title {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
-    text-transform: uppercase;
     margin: 40px 0;
     @media screen and (max-width: 768px) {
-      font-size: 32px;
       padding: 0 25px;
     }
   }

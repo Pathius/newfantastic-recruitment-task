@@ -20,6 +20,7 @@ export default {
             let response = await fetch(endpointURL);
             response = await response.json();
             let sizes = []
+            // In case of future changes in sizes (some other may be added) I used loop
             for (let size of response) {
                 sizes.unshift(size.acf)
             }
