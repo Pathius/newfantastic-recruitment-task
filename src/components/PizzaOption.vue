@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="isActive || $store.state.pizza.activeOption == ''  ? 'option' : 'option option-disabled'"
-  >
+  <div :class="isActive ? 'option' : 'option option-disabled'">
     <h3 class="option__title">{{size.name}}</h3>
     <div class="option__img"></div>
     <section class="option__details">
@@ -12,14 +10,18 @@
       <p class="option__details-description">Cena:</p>
       <p class="option__details-value">{{size.price}}zł</p>
     </section>
-    <button
-      class="button option__button"
-      @click="choose"
-    >{{isActive ? "Wybrany rozmiar" : "Wybierz rozmiar"}}</button>
+    <BaseButton
+      @click.native="choose"
+      class="option__button"
+    >{{isChosen ? "Wybrany rozmiar" : "Wybierz rozmiar"}}</BaseButton>
   </div>
 </template>
 <script>
+import BaseButton from "./BaseButton";
 export default {
+  components: {
+    BaseButton
+  },
   props: {
     size: {
       type: Object,
@@ -29,9 +31,15 @@ export default {
   computed: {
     isActive() {
       return (
-        this.$store.state.pizza.activeOption.name === this.size.name &&
-        this.$store.state.pizza.activeOption.name !== ""
+        this.$store.state.pizza.activeOption.name === this.size.name ||
+        this.$store.state.pizza.activeOption == ""
       );
+    },
+    isChosen() {
+      return this.$store.state.pizza.activeOption.name === this.size.name;
+    },
+    price() {
+      return this.$store.getters["pizza/price"];
     }
   },
   methods: {

@@ -7,12 +7,6 @@ import ingredients from './modules/ingredients'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
     welcome,
     pizza,

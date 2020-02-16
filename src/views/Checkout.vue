@@ -4,28 +4,38 @@
     <h2 class="title checkout__title">Złóż zamówienie</h2>
     <section class="checkout__panel">
       <PizzaCheckout />
-      <PizzaCheckout />
-      <PizzaCheckout />
-      <h3 class="checkout__price">
-        <span>Łącznie</span>
-        <span class="checkout__price-text-gray">46,90zł</span>
-      </h3>
     </section>
     <section class="checkout__buttons">
-      <button class="button-transparent checkout__button">Dodaj następny</button>
-      <br />
-      <router-link tag="button" to="/transaction" class="button checkout__button">Zakończ zamówienie</router-link>
+      <BaseButton
+        @click.native="addAnother"
+        :transparent="true"
+        class="checkout__button"
+      >Dodaj następny</BaseButton>
+      <BaseButton
+        @click.native="$router.push('/transaction')"
+        class="checkout__button"
+      >Zakończ zamówienie</BaseButton>
     </section>
   </section>
 </template>
 <script>
 import Header from "../components/Header";
 import PizzaCheckout from "../components/PizzaCheckout";
+import BaseButton from "../components/BaseButton";
 
 export default {
+  name: "checkout",
   components: {
     Header,
-    PizzaCheckout
+    PizzaCheckout,
+    BaseButton
+  },
+  methods: {
+    addAnother() {
+      this.$store.commit("pizza/newPizza");
+      this.$store.commit("ingredients/newPizza");
+      this.$router.push("/pizza");
+    }
   }
 };
 </script>
@@ -43,7 +53,7 @@ export default {
   &__panel {
     margin: 0 auto;
     background: white;
-    max-width: 624px;
+    width: 624px;
     @media screen and (max-width: 768px) {
       width: 90%;
     }
@@ -77,7 +87,7 @@ export default {
     height: 48px;
     margin: 16px 0 0;
     &:nth-last-of-type(1) {
-      margin: 0 0 80px;
+      margin: 16px 0 80px;
     }
     @media screen and (max-width: 768px) {
       width: 90%;

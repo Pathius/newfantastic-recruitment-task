@@ -3,33 +3,46 @@
     <Header />
     <h2 class="title customize__title">Wybierz składniki do pizzy</h2>
     <section class="customize__ingredients">
-      <Ingredient v-for="(ingredient, index) in ingredients" :key="index" :ingredient="ingredient" />
+      <Ingredient
+        v-for="(ingredient, index) in ingredients"
+        :key="index"
+        :index="index"
+        :ingredient="ingredient"
+      />
     </section>
-    <button @click="goBack" class="button customize__button">Wstecz</button>
-    <router-link to="/checkout" tag="button" class="button customize__button">Dalej</router-link>
+    <BaseButton @click.native="goBack" class="customize__button">Wstecz</BaseButton>
+    <BaseButton @click.native="addPizza" class="customize__button">Dalej</BaseButton>
   </section>
 </template>
 <script>
 import Header from "../components/Header";
 import Ingredient from "../components/Ingredient";
+import BaseButton from "../components/BaseButton";
 
 export default {
+  name: "customize",
   components: {
     Header,
-    Ingredient
+    Ingredient,
+    BaseButton
   },
   computed: {
     ingredients() {
       return this.$store.state.ingredients.ingredients;
+    },
+    activeOption() {
+      return this.$store.state.pizza.activeOption;
     }
   },
   methods: {
     goBack() {
+      this.$store.commit("ingredients/initialValues");
       window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
+    },
+    addPizza() {
+      this.$store.dispatch("pizza/addPizza");
+      this.$router.push("/checkout");
     }
-  },
-  created() {
-    this.$store.dispatch("ingredients/getData");
   }
 };
 </script>

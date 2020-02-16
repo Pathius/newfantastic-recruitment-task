@@ -1,26 +1,37 @@
 <template>
   <div class="transaction">
-    <span class="transaction__logo">🍕</span>
+    <span class="transaction__logo logo">🍕</span>
     <h2 class="title trasaction__title">Dziękujemy!</h2>
-    <p class="transaction__info">Twoje zamówienie za {{}} zł powinno dotrzeć do Ciebie za 29min 57s</p>
-    <router-link to="/" tag="button" class="button transaction__button">Wróć do strony głównej</router-link>
+    <p
+      class="transaction__info"
+    >Twoje zamówienie za {{price | readablePrice}} zł powinno dotrzeć do Ciebie za 29min 57s</p>
+    <BaseButton @click.native="goHomePage" class="button transaction__button">Wróć do strony głównej</BaseButton>
     <span class="transaction__subtitle">Twoje zamówienie</span>
     <section class="transaction__panel">
       <PizzaCheckout />
-      <PizzaCheckout />
-      <PizzaCheckout />
-      <h3 class="transaction__price">
-        <span>Łącznie</span>
-        <span class="transaction__price-text-gray">46,90zł</span>
-      </h3>
     </section>
   </div>
 </template>
 <script>
 import PizzaCheckout from "../components/PizzaCheckout";
+import BaseButton from "../components/BaseButton";
 export default {
+  name: "transaction",
   components: {
-    PizzaCheckout
+    PizzaCheckout,
+    BaseButton
+  },
+  computed: {
+    price() {
+      return this.$store.getters["pizza/price"];
+    }
+  },
+  methods: {
+    goHomePage() {
+      this.$store.commit("pizza/initialValues");
+      this.$store.commit("ingredients/initialValues");
+      this.$router.push("/");
+    }
   }
 };
 </script>
@@ -32,8 +43,6 @@ export default {
   justify-content: center;
   align-items: center;
   &__logo {
-    font-size: 60px;
-    line-height: 70px;
     margin: 88px 0 40px;
     @media screen and (max-width: 768px) {
       margin: 80px 0 40px;
@@ -49,6 +58,7 @@ export default {
     @media screen and (max-width: 768px) {
       font-size: 23px;
       line-height: 32px;
+      margin: 40px 25px;
     }
   }
   &__button {

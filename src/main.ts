@@ -5,6 +5,11 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+Vue.filter('readablePrice', function (value) {
+  if (value > 0) return value.toFixed(2)
+  else return 0
+})
+
 new Vue({
   router,
   store,

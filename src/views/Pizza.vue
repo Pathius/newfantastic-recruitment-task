@@ -5,24 +5,25 @@
     <section class="glider pizza__choose">
       <PizzaOption v-for="(size, index) in sizes" :key="index" :size="size" />
     </section>
-    <button @click="goBack" class="button pizza__button">Wstecz</button>
-    <router-link
-      to="/customize"
-      tag="button"
-      :disabled="!isChoosen"
+    <BaseButton class="pizza__button" @click.native="goBack">Wstecz</BaseButton>
+    <BaseButton
       :class="isChoosen ? 'button pizza__button' : 'button-disabled pizza__button'"
-    >Dalej</router-link>
+      :disabled="!isChoosen"
+      @click.native="$router.push('/customize')"
+    >Dalej</BaseButton>
   </section>
 </template>
 <script>
 import Header from "../components/Header";
 import PizzaOption from "../components/PizzaOption";
+import BaseButton from "../components/BaseButton";
 
 export default {
-  name: "welcome",
+  name: "pizza",
   components: {
     Header,
-    PizzaOption
+    PizzaOption,
+    BaseButton
   },
   computed: {
     sizes() {
@@ -34,14 +35,13 @@ export default {
   },
   methods: {
     goBack() {
+      this.$store.state.pizza.activeOption = "";
       window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
     }
   },
-  created() {
-    this.$store.dispatch("pizza/getData");
-  },
   mounted() {
     if (this.sizes.length == 0) {
+      // I used library for mobile carousel, this is it instance
       new Glider(document.querySelector(".glider"));
     }
   }

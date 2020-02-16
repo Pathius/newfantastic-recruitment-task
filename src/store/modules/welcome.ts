@@ -12,15 +12,24 @@ export default {
         invite: ""
     },
     mutations: {
-        setTitle: (state, payload) => state.title = payload,
-        setInvite: (state, payload) => state.invite = payload
+        setData: (state, { title, invite }) => {
+            state.title = title
+            state.invite = invite
+        }
     },
     actions: {
         getData: async ({ commit }) => {
-            let response = await fetch(endpointURL);
-            response = (await response.json())[0];
-            commit('setTitle', response.title.rendered)
-            commit('setInvite', response.content.rendered)
+            try {
+                let response = await fetch(endpointURL);
+                if (!response.ok) throw new Error(response.statusText)
+                response = (await response.json())[0];
+                commit('setData', {
+                    title: response.title.rendered,
+                    invite: response.content.rendered
+                })
+            } catch (error) {
+                console.log("WELCOME GETDATA ERROR", error)
+            }
         }
     }
 }

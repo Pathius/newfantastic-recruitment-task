@@ -1,11 +1,29 @@
 <template>
   <header class="header">
-    <router-link to="/" tag="span" class="header-back">Powrót na START</router-link>
-    <span class="header-logo">🍕</span>
-    <span class="header-price">0,00zł</span>
+    <span @click="goHomePage" class="header__back">Powrót na START</span>
+    <span class="header__logo logo-header">🍕</span>
+    <span class="header__price">{{price | readablePrice}}zł</span>
   </header>
 </template>
+<script>
+export default {
+  computed: {
+    price() {
+      return this.$store.getters["pizza/price"];
+    }
+  },
+  methods: {
+    goHomePage() {
+      this.$store.commit("pizza/initialValues");
+      this.$store.commit("ingredients/initialValues");
+      this.$router.push("/");
+    }
+  }
+};
+</script>
 <style scoped lang="scss">
+@import "../scss/global-styles";
+
 .header {
   position: relative;
   height: 100px;
@@ -17,7 +35,7 @@
     justify-content: space-between;
     margin-bottom: 40px;
   }
-  &-back {
+  &__back {
     font-style: normal;
     font-weight: bold;
     font-size: 19px;
@@ -29,19 +47,13 @@
       padding-left: 20px;
     }
   }
-  &-logo {
+  &__logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 60px;
-    line-height: 70px;
     padding: 20px 0;
-    @media screen and (max-width: 768px) {
-      font-size: 40px;
-      line-height: 47px;
-    }
   }
-  &-price {
+  &__price {
     font-style: normal;
     font-weight: 500;
     font-size: 22px;

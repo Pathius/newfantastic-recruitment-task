@@ -9,6 +9,20 @@
     }
 }
 
+.logo{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 70px;
+    &-header{
+     @extend .logo;
+     @media screen and (max-width: 768px) {
+        font-size: 40px;
+        line-height: 47px;
+      }
+    }
+}
+
 .button{
     font-size: 20px;
     line-height: 24px;
@@ -30,3 +44,8 @@
         color: black;
     }
 }
+
+// COLORS
+.text-gray {
+    color: #7b7b7b;
+  }

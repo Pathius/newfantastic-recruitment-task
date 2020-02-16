@@ -12,6 +12,11 @@ export default Vue.extend({
   name: "app",
   components: {
     TheFooter
+  },
+  created() {
+    this.$store.dispatch("welcome/getData");
+    this.$store.dispatch("pizza/getData");
+    this.$store.dispatch("ingredients/getData");
   }
 });
 </script>

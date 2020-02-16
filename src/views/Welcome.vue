@@ -1,25 +1,24 @@
 <template>
   <section class="welcome">
-    <span class="welcome__logo">🍕</span>
-    <h1 class="title welcome__title">{{title}}</h1>
-    <span class="welcome__invite" v-html="invite"></span>
-    <router-link to="/pizza" tag="button" class="button welcome__button">Start</router-link>
+    <span class="welcome__logo logo">🍕</span>
+    <h1 class="welcome__title title">{{title}}</h1>
+    <span class="welcome__invite text-gray" v-html="invite"></span>
+    <BaseButton @click.native="$router.push('/pizza')" class="welcome__button">Start</BaseButton>
   </section>
 </template>
 <script>
+import BaseButton from "../components/BaseButton";
 export default {
   name: "welcome",
+  components: {
+    BaseButton
+  },
   computed: {
     title() {
       return this.$store.state.welcome.title;
     },
     invite() {
       return this.$store.state.welcome.invite;
-    }
-  },
-  created() {
-    if (this.title === "" && this.invite === "") {
-      this.$store.dispatch("welcome/getData");
     }
   }
 };
@@ -35,10 +34,6 @@ export default {
   width: 100%;
   &__logo {
     width: 100%;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 60px;
-    line-height: 70px;
   }
   &__title {
     margin: 40px 0;
@@ -50,7 +45,6 @@ export default {
     font-weight: 500;
     font-size: 26px;
     line-height: 32px;
-    color: #7b7b7b;
     @media screen and (max-width: 768px) {
       font-size: 23px;
     }
