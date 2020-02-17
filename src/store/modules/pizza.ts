@@ -13,7 +13,9 @@ export default {
         activeOption: "",
         sizePrice: 0,
         orderedPizzas: [],
-        orderedPizzasCost: 0
+        orderedPizzasCost: 0,
+        timeLeft: 1800,
+        intervalId: 0
     },
     mutations: {
         setData: (state, payload) => state.sizes = payload,
@@ -36,7 +38,17 @@ export default {
             state.orderedPizzas.push(payload)
             state.orderedPizzasCost += +payload.sizePrice
             state.orderedPizzasCost += payload.ingredientsPrice
+        },
+        subtractSecond: state => {
+            if (state.timeLeft == 0) {
+                clearInterval(state.intervalId)
+            } else state.timeLeft--
+        },
+        resetTimer: state => {
+            clearInterval(state.intervalId);
+            state.timeLeft = 1800;
         }
+
     },
     actions: {
         getData: async ({ commit }) => {

@@ -36,8 +36,8 @@ export default {
                 units
             }
         },
-        deleteUnusedIngredient: (state, { index }) => {
-            delete state.ingredientsUsed[index]
+        deleteUnusedIngredient: (state, payload) => {
+            delete state.ingredientsUsed[payload]
         },
         setIngredientsWeight: (state, { index, weight }) => {
             state.ingredientsUsedWeight[index] = weight;

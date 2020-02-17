@@ -1,6 +1,8 @@
 <template>
   <section class="welcome">
-    <span class="welcome__logo logo">🍕</span>
+    <span class="welcome__logo logo">
+      <IconPizza />
+    </span>
     <h1 class="welcome__title title">{{title}}</h1>
     <span class="welcome__invite text-gray" v-html="invite"></span>
     <BaseButton @click.native="$router.push('/pizza')" class="welcome__button">Start</BaseButton>
@@ -8,10 +10,12 @@
 </template>
 <script>
 import BaseButton from "../components/BaseButton";
+import IconPizza from "../components/Icons/IconPizza";
 export default {
   name: "welcome",
   components: {
-    BaseButton
+    BaseButton,
+    IconPizza
   },
   computed: {
     title() {
