@@ -52,3 +52,7 @@ Ostatni krok to Checkout, na którym możemy zakończyć zamówienie, bądź dod
 - Vuex
 - Vue Router (każdy krok to osobny route)
 - Vue WordPress (https://docs.vuewordpress.io) / Fetch API / Axios
+
+
+## Projekt ukończony!
+Demo: https://pathius.github.io/recruitment-task/
