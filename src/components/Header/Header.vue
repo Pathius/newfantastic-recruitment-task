@@ -1,12 +1,15 @@
 <template>
   <header class="header">
     <span
-      @click="goHomePage"
       class="header__back"
+      @click="goHomePage"
     >
       Powrót na START
     </span>
-    <span class="header__logo logo-header">
+    <span
+      class="header__logo logo-header"
+      @click="goHomePage"
+    >
       <IconPizza />
     </span>
     <span class="header__price">
