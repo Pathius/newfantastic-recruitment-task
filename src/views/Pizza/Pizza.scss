@@ -12,6 +12,8 @@
   &__choose {
     justify-content: center;
     display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
     @media screen and (max-width: 768px) {
       justify-content: flex-start;
     }
