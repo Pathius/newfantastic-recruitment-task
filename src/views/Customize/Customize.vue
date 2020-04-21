@@ -58,27 +58,5 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
-@import "../../scss/global-styles";
-.customize {
-  text-align: center;
-  &__title {
-    margin-bottom: 40px;
-    @media screen and (max-width: 768px) {
-      margin-bottom: 36px;
-    }
-  }
-  &__ingredients {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  &__button {
-    width: 140px;
-    height: 48px;
-    margin-top: 40px;
-    margin: 60px 8px 100px;
-  }
-}
+<style scoped lang="scss" src="./Customize.scss">
 </style>

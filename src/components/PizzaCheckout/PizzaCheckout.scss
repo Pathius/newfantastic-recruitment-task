@@ -1,0 +1,52 @@
+@import "../../scss/global-styles";
+.checkout {
+  padding: 40px 40px 0;
+  @media screen and (max-width: 768px) {
+    padding: 16px 16px 0;
+  }
+  &__product {
+    margin-bottom: 25px;
+    &-size {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 32px;
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      @media screen and (max-width: 768px) {
+        font-size: 19px;
+        line-height: 23px;
+      }
+    }
+    &-ingredient {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      display: flex;
+      justify-content: space-between;
+      margin: 16px 0;
+      @media screen and (max-width: 768px) {
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 40px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 42px;
+      text-transform: uppercase;
+      @media screen and (max-width: 768px) {
+        padding: 15px 0 40px;
+        font-size: 23px;
+        line-height: 32px;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -54,34 +54,5 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
-@import "../../scss/global-styles";
-.pizza {
-  text-align: center;
-  &__title {
-    margin: 48px 0 52px;
-    @media screen and (max-width: 768px) {
-      font-size: 32px;
-      padding: 0 40px;
-      margin: 0 0 36px;
-    }
-  }
-  &__choose {
-    justify-content: center;
-    display: flex;
-    @media screen and (max-width: 768px) {
-      justify-content: flex-start;
-    }
-  }
-  &__button {
-    width: 224px;
-    height: 48px;
-    margin: 60px 8px 100px;
-    @media screen and (max-width: 768px) {
-      width: 160px;
-      height: 48px;
-      margin: 52px 8px 81px;
-    }
-  }
-}
+<style scoped lang="scss" src="./Pizza.scss">
 </style>

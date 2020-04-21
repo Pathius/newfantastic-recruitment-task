@@ -34,48 +34,5 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
-@import "../../scss/global-styles";
-
-.header {
-  position: relative;
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 48px;
-  @media screen and (max-width: 768px) {
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
-  &__back {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 19px;
-    line-height: 23px;
-    cursor: pointer;
-    @media screen and (max-width: 768px) {
-      font-size: 13px;
-      line-height: 15px;
-      padding-left: 20px;
-    }
-  }
-  &__logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px 0;
-  }
-  &__price {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 26px;
-    @media screen and (max-width: 768px) {
-      font-size: 13px;
-      line-height: 15px;
-      padding-right: 20px;
-    }
-  }
-}
+<style scoped lang="scss" src="./Header.scss">
 </style>
