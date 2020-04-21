@@ -76,6 +76,17 @@ export default {
     getters: {
         price: (state, getters, rootState) => {
             return state.orderedPizzasCost + +state.sizePrice + rootState.ingredients.ingredientsCost
+        },
+        timeLeft: ({ timeLeft }) => {
+            if (timeLeft > 60) {
+                return `dotrzeć do Ciebie za ${Math.floor(
+                    timeLeft / 60
+                )}min ${timeLeft % 60}s`;
+            } else if (timeLeft > 0) {
+                return `dotrzeć do Ciebie za ${timeLeft}s`;
+            } else {
+                return `już do Ciebie dotrzeć. Smacznego!`;
+            }
         }
     }
 }

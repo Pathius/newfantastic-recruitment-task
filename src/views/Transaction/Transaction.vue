@@ -44,16 +44,7 @@ export default {
       return this.$store.getters["pizza/price"];
     },
     timeLeft() {
-      let timeLeft = this.$store.state.pizza.timeLeft;
-      if (timeLeft > 60) {
-        return `dotrzeć do Ciebie za ${Math.floor(
-          timeLeft / 60
-        )}min ${timeLeft % 60}s`;
-      } else if (timeLeft > 0) {
-        return `dotrzeć do Ciebie za ${timeLeft}s`;
-      } else {
-        return `już do Ciebie dotrzeć. Smacznego!`;
-      }
+      return this.$store.getters["pizza/timeLeft"];
     }
   },
   methods: {
