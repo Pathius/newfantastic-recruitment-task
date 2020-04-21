@@ -10,8 +10,14 @@
         :ingredient="ingredient"
       />
     </section>
-    <BaseButton @click.native="goBack" class="customize__button">Wstecz</BaseButton>
-    <BaseButton @click.native="addPizza" class="customize__button">Dalej</BaseButton>
+    <BaseButton
+      @click.native="goBack"
+      class="customize__button"
+    >Wstecz</BaseButton>
+    <BaseButton
+      @click.native="addPizza"
+      class="customize__button"
+    >Dalej</BaseButton>
   </section>
 </template>
 <script>

@@ -1,14 +1,38 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-const endpointURL = "https://wp.recruitment.newfantastic.com/wp-json/wp/v2/pizza_ingredients"
-
-Vue.use(Vuex)
-
 export default {
     namespaced: true,
     state: {
-        ingredients: [],
+        ingredients: [
+            {
+                name: "Szynka",
+                price_per_unit: "2",
+                weight: 0.4
+            },
+            {
+                name: "Ser",
+                price_per_unit: "3",
+                weight: 0.5
+            },
+            {
+                name: "Salami",
+                price_per_unit: "4",
+                weight: 0.4
+            },
+            {
+                name: "Kurczak",
+                price_per_unit: "3",
+                weight: 0.3
+            },
+            {
+                name: "Pieczarki",
+                price_per_unit: "3",
+                weight: 0.3
+            },
+            {
+                name: "Oliwki",
+                price_per_unit: "5",
+                weight: 0.2
+            }
+        ],
         ingredientsUsed: {},
         ingredientsUsedWeight: [],
         ingredientsWeight: 0,
@@ -52,20 +76,6 @@ export default {
         }
     },
     actions: {
-        getData: async ({ commit }) => {
-            try {
-                let response = await fetch(endpointURL);
-                if (!response.ok) throw new Error(response.statusText)
-                response = await response.json();
-                let ingredients = []
-                for (let ingredient of response) {
-                    ingredients.push(ingredient.acf)
-                }
-                commit("setData", ingredients)
-            } catch (error) {
-                console.log("INGREDIENTS GETDATA ERROR", error)
-            }
-        },
         checkWeight: ({ state, commit, rootState }, { name, price, units, weight, weightPerUnit, index }) => {
             // Check max free units possible to use
             let maxWeight = rootState.pizza.activeOption.maximum_ingredients_weight

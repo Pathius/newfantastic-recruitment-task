@@ -4,10 +4,11 @@
       <IconPizza />
     </span>
     <h2 class="title trasaction__title">Dziękujemy!</h2>
-    <p
-      class="transaction__info"
-    >Twoje zamówienie za {{price | readablePrice}} zł powinno {{timeLeft}}</p>
-    <BaseButton @click.native="goHomePage" class="button transaction__button">Wróć do strony głównej</BaseButton>
+    <p class="transaction__info">Twoje zamówienie za {{price | readablePrice}} zł powinno {{timeLeft}}</p>
+    <BaseButton
+      @click.native="goHomePage"
+      class="button transaction__button"
+    >Wróć do strony głównej</BaseButton>
     <span class="transaction__subtitle">Twoje zamówienie</span>
     <section class="transaction__panel">
       <PizzaCheckout />
@@ -56,7 +57,7 @@ export default {
   },
   created() {
     const that = this;
-    this.$store.state.pizza.intervalId = setInterval(() => {
+    this.$store.state.pizza.intervalId = setInterval(function() {
       that.$store.commit("pizza/subtractSecond");
     }, 1000);
   },

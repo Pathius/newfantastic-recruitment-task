@@ -3,9 +3,12 @@
     <span class="welcome__logo logo">
       <IconPizza />
     </span>
-    <h1 class="welcome__title title">{{title}}</h1>
-    <span class="welcome__invite text-gray" v-html="invite"></span>
-    <BaseButton @click.native="$router.push('/pizza')" class="welcome__button">Start</BaseButton>
+    <h1 class="welcome__title title">WITAJ W KREATORZE PIZZY!</h1>
+    <p class="welcome__invite text-gray">Kliknij START aby rozpocząć</p>
+    <BaseButton
+      @click.native="$router.push('/pizza')"
+      class="welcome__button"
+    >Start</BaseButton>
   </section>
 </template>
 <script>
@@ -16,14 +19,6 @@ export default {
   components: {
     BaseButton,
     IconPizza
-  },
-  computed: {
-    title() {
-      return this.$store.state.welcome.title;
-    },
-    invite() {
-      return this.$store.state.welcome.invite;
-    }
   }
 };
 </script>

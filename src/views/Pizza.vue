@@ -3,9 +3,16 @@
     <Header />
     <h2 class="title pizza__title">Wybierz rozmiar pizzy</h2>
     <section class="glider pizza__choose">
-      <PizzaOption v-for="(size, index) in sizes" :key="index" :size="size" />
+      <PizzaOption
+        v-for="(size, index) in sizes"
+        :key="index"
+        :size="size"
+      />
     </section>
-    <BaseButton class="pizza__button" @click.native="goBack">Wstecz</BaseButton>
+    <BaseButton
+      class="pizza__button"
+      @click.native="goBack"
+    >Wstecz</BaseButton>
     <BaseButton
       :class="isChoosen ? 'button pizza__button' : 'button-disabled pizza__button'"
       :disabled="!isChoosen"
@@ -37,12 +44,6 @@ export default {
     goBack() {
       this.$store.state.pizza.activeOption = "";
       window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
-    }
-  },
-  mounted() {
-    if (this.sizes.length == 0) {
-      // I used library for mobile carousel, this is it instance
-      new Glider(document.querySelector(".glider"));
     }
   }
 };

@@ -1,15 +1,26 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import ingredients from './ingredients'
-
-const endpointURL = "https://wp.recruitment.newfantastic.com/wp-json/wp/v2/pizza_sizes"
-
-Vue.use(Vuex)
-
 export default {
     namespaced: true,
     state: {
-        sizes: [],
+        sizes: [
+            {
+                name: "Medium",
+                size: "32",
+                price: "26.90",
+                maximum_ingredients_weight: 4
+            },
+            {
+                name: "Max",
+                size: "45",
+                price: "34.90",
+                maximum_ingredients_weight: 6
+            },
+            {
+                name: "Mega",
+                size: "60",
+                price: "51.90",
+                maximum_ingredients_weight: 8
+            }
+        ],
         activeOption: "",
         sizePrice: 0,
         orderedPizzas: [],
@@ -51,20 +62,6 @@ export default {
 
     },
     actions: {
-        getData: async ({ commit }) => {
-            try {
-                let response = await fetch(endpointURL);
-                if (!response.ok) throw new Error(response.statusText)
-                response = await response.json();
-                let sizes = []
-                for (let size of response) {
-                    sizes.unshift(size.acf)
-                }
-                commit('setData', sizes)
-            } catch (error) {
-                console.log("PIZZA GETDATA ERROR", error)
-            }
-        },
         addPizza: ({ state, commit, rootState }) => {
             commit("addPizza", {
                 name: state.activeOption.name,
