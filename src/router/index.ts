@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import pizza from '../store/modules/pizza.ts'
 
 Vue.use(VueRouter)
@@ -17,29 +16,29 @@ const routes = [
   {
     path: '/',
     name: 'welcome',
-    component: () => import('../views/Welcome.vue')
+    component: () => import('../views/Welcome/Welcome.vue')
   },
   {
     path: '/pizza',
     name: 'pizza',
-    component: () => import('../views/Pizza.vue')
+    component: () => import('../views/Pizza/Pizza.vue')
   },
   {
     path: '/customize',
     name: 'customize',
-    component: () => import('../views/Customize.vue'),
+    component: () => import('../views/Customize/Customize.vue'),
     beforeEnter: chosenSize
   },
   {
     path: '/checkout',
     name: 'checkout',
-    component: () => import('../views/Checkout.vue'),
+    component: () => import('../views/Checkout/Checkout.vue'),
     beforeEnter: anyOrder
   },
   {
     path: '/transaction',
     name: 'transaction',
-    component: () => import('../views/Transaction.vue'),
+    component: () => import('../views/Transaction/Transaction.vue'),
     beforeEnter: anyOrder
   },
   {

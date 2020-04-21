@@ -25,9 +25,9 @@
   </section>
 </template>
 <script>
-import Header from "../components/Header";
-import PizzaCheckout from "../components/PizzaCheckout";
-import BaseButton from "../components/BaseButton";
+import Header from "../../components/Header/Header.vue";
+import PizzaCheckout from "../../components/PizzaCheckout/PizzaCheckout.vue";
+import BaseButton from "../../components/BaseButton/BaseButton.vue";
 
 export default {
   name: "checkout",
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 
 .checkout {
   text-align: center;

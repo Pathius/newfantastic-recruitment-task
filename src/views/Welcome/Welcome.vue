@@ -18,8 +18,8 @@
   </section>
 </template>
 <script>
-import BaseButton from "../components/BaseButton";
-import IconPizza from "../components/Icons/IconPizza";
+import BaseButton from "../../components/BaseButton/BaseButton.vue";
+import IconPizza from "../../components/Icons/IconPizza.vue";
 export default {
   name: "welcome",
   components: {
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 .welcome {
   position: absolute;
   top: 50%;

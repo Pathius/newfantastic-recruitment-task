@@ -29,7 +29,7 @@
   </div>
 </template>
 <script>
-import BaseButton from "./BaseButton";
+import BaseButton from "../BaseButton/BaseButton.vue";
 export default {
   components: {
     BaseButton
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 
 .option {
   display: flex;

@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TheFooter from "./components/TheFooter.vue";
+import TheFooter from "./components/TheFooter/TheFooter.vue";
 export default Vue.extend({
   name: "app",
   components: {

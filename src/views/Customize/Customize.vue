@@ -27,9 +27,9 @@
   </section>
 </template>
 <script>
-import Header from "../components/Header";
-import Ingredient from "../components/Ingredient";
-import BaseButton from "../components/BaseButton";
+import Header from "../../components/Header/Header.vue";
+import Ingredient from "../../components/Ingredient/Ingredient.vue";
+import BaseButton from "../../components/BaseButton/BaseButton.vue";
 
 export default {
   name: "customize",
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 .customize {
   text-align: center;
   &__title {

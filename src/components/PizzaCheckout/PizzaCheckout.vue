@@ -52,7 +52,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 .checkout {
   padding: 40px 40px 0;
   @media screen and (max-width: 768px) {

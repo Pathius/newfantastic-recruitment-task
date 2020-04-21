@@ -15,7 +15,7 @@
   </header>
 </template>
 <script>
-import IconPizza from "./Icons/IconPizza.vue";
+import IconPizza from "../Icons/IconPizza.vue";
 export default {
   components: {
     IconPizza
@@ -35,7 +35,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../scss/global-styles";
+@import "../../scss/global-styles";
 
 .header {
   position: relative;
