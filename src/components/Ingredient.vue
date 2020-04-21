@@ -1,7 +1,9 @@
 <template>
   <section class="ingredient">
     <div class="ingredient__image"></div>
-    <h3 class="ingredient__name">{{ingredient.name}}</h3>
+    <h3 class="ingredient__name">
+      {{ingredient.name}}
+    </h3>
     <input
       type="text"
       class="ingredient__value"
@@ -10,7 +12,9 @@
       :placeholder="placeholder"
       @input="changeWeight"
     />
-    <p class="ingredient__price">{{ingredient.price_per_unit}}zł/szt</p>
+    <p class="ingredient__price">
+      {{ingredient.price_per_unit}}zł/szt
+    </p>
   </section>
 </template>
 <script>

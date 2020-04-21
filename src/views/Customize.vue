@@ -1,7 +1,9 @@
 <template>
   <section class="customize">
     <Header />
-    <h2 class="title customize__title">Wybierz składniki do pizzy</h2>
+    <h2 class="title customize__title">
+      Wybierz składniki do pizzy
+    </h2>
     <section class="customize__ingredients">
       <Ingredient
         v-for="(ingredient, index) in ingredients"
@@ -13,11 +15,15 @@
     <BaseButton
       @click.native="goBack"
       class="customize__button"
-    >Wstecz</BaseButton>
+    >
+      Wstecz
+    </BaseButton>
     <BaseButton
       @click.native="addPizza"
       class="customize__button"
-    >Dalej</BaseButton>
+    >
+      Dalej
+    </BaseButton>
   </section>
 </template>
 <script>

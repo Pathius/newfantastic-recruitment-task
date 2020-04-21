@@ -1,9 +1,17 @@
 <template>
   <section class="checkout">
-    <section class="checkout__product" v-for="(pizza, index) in pizzas" :key="index">
+    <section
+      class="checkout__product"
+      v-for="(pizza, index) in pizzas"
+      :key="index"
+    >
       <p class="checkout__product-size">
-        <span>Rozmiar {{pizza.name}}</span>
-        <span class="text-gray">{{pizza.sizePrice}}zł</span>
+        <span>
+          Rozmiar {{pizza.name}}
+        </span>
+        <span class="text-gray">
+          {{pizza.sizePrice}}zł
+        </span>
       </p>
       <p
         class="checkout__product-ingredient"
@@ -12,14 +20,22 @@
       >
         <span>
           {{ingredient.name}}
-          <span class="text-gray">x{{ingredient.units}}</span>
+          <span class="text-gray">
+            x{{ingredient.units}}
+          </span>
         </span>
-        <span class="text-gray">{{ingredient.units*ingredient.price | readablePrice}}zł</span>
+        <span class="text-gray">
+          {{ingredient.units*ingredient.price | readablePrice}}zł
+        </span>
       </p>
     </section>
     <h3 class="checkout__product-price">
-      <span>Łącznie</span>
-      <span class="text-gray">{{price | readablePrice}}zł</span>
+      <span>
+        Łącznie
+      </span>
+      <span class="text-gray">
+        {{price | readablePrice}}zł
+      </span>
     </h3>
   </section>
 </template>

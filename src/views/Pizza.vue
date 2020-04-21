@@ -1,7 +1,9 @@
 <template>
   <section class="pizza">
     <Header />
-    <h2 class="title pizza__title">Wybierz rozmiar pizzy</h2>
+    <h2 class="title pizza__title">
+      Wybierz rozmiar pizzy
+    </h2>
     <section class="glider pizza__choose">
       <PizzaOption
         v-for="(size, index) in sizes"
@@ -12,12 +14,16 @@
     <BaseButton
       class="pizza__button"
       @click.native="goBack"
-    >Wstecz</BaseButton>
+    >
+      Wstecz
+    </BaseButton>
     <BaseButton
       :class="isChoosen ? 'button pizza__button' : 'button-disabled pizza__button'"
       :disabled="!isChoosen"
       @click.native="$router.push('/customize')"
-    >Dalej</BaseButton>
+    >
+      Dalej
+    </BaseButton>
   </section>
 </template>
 <script>

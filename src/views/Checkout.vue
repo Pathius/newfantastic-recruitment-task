@@ -1,7 +1,9 @@
 <template>
   <section class="checkout">
     <Header />
-    <h2 class="title checkout__title">Złóż zamówienie</h2>
+    <h2 class="title checkout__title">
+      Złóż zamówienie
+    </h2>
     <section class="checkout__panel">
       <PizzaCheckout />
     </section>
@@ -10,11 +12,15 @@
         @click.native="addAnother"
         :transparent="true"
         class="checkout__button"
-      >Dodaj następny</BaseButton>
+      >
+        Dodaj następny
+      </BaseButton>
       <BaseButton
         @click.native="$router.push('/transaction')"
         class="checkout__button"
-      >Zakończ zamówienie</BaseButton>
+      >
+        Zakończ zamówienie
+      </BaseButton>
     </section>
   </section>
 </template>

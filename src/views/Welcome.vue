@@ -3,12 +3,18 @@
     <span class="welcome__logo logo">
       <IconPizza />
     </span>
-    <h1 class="welcome__title title">WITAJ W KREATORZE PIZZY!</h1>
-    <p class="welcome__invite text-gray">Kliknij START aby rozpocząć</p>
+    <h1 class="welcome__title title">
+      WITAJ W KREATORZE PIZZY!
+    </h1>
+    <p class="welcome__invite text-gray">
+      Kliknij START aby rozpocząć
+    </p>
     <BaseButton
       @click.native="$router.push('/pizza')"
       class="welcome__button"
-    >Start</BaseButton>
+    >
+      Start
+    </BaseButton>
   </section>
 </template>
 <script>
