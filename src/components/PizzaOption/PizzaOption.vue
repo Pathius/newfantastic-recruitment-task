@@ -3,7 +3,11 @@
     <h3 class="option__title">
       {{size.name}}
     </h3>
-    <div class="option__img"></div>
+    <img
+      :src="imageUrl"
+      alt=""
+      class="option__image"
+    >
     <section class="option__details">
       <p class="option__details-description">
         Rozmiar:
@@ -52,6 +56,9 @@ export default {
     },
     price() {
       return this.$store.getters["pizza/price"];
+    },
+    imageUrl() {
+      return require(`../../assets/sizes/${this.size.photo}`);
     }
   },
   methods: {
