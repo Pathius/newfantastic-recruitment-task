@@ -1,6 +1,10 @@
 <template>
   <section class="ingredient">
-    <div class="ingredient__image"></div>
+    <img
+      :src="imageUrl"
+      alt=""
+      class="ingredient__image"
+    >
     <h3 class="ingredient__name">
       {{ingredient.name}}
     </h3>
@@ -50,6 +54,11 @@ export default {
         weightPerUnit: this.ingredient.weight,
         index: this.index
       });
+    }
+  },
+  computed: {
+    imageUrl() {
+      return require(`../../static/ingredients/${this.ingredient.photo}`);
     }
   }
 };
