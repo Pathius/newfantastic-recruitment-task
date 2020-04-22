@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view />
+    <transition
+      name="slide"
+      mode="out-in"
+      appear
+    >
+      <router-view />
+    </transition>
     <TheFooter />
   </div>
 </template>
@@ -31,5 +37,24 @@ body {
   margin: 0;
   position: relative;
   background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translate(2em, 0);
+}
+
+.slide-leave-active {
+  opacity: 0;
+  transform: translate(-2em, 0);
 }
 </style>
