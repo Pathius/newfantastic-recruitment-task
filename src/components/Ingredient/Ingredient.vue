@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     imageUrl() {
-      return require(`../../static/ingredients/${this.ingredient.photo}`);
+      return require(`../../assets/ingredients/${this.ingredient.photo}`);
     }
   }
 };
