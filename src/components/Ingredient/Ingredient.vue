@@ -9,10 +9,10 @@
       {{ingredient.name}}
     </h3>
     <input
-      type="text"
+      type="number"
       class="ingredient__value"
       @focus="placeholder = ''"
-      @blur="placeholder = 0"
+      @blur="inputBlur"
       :placeholder="placeholder"
       @input="changeWeight"
     />
@@ -40,12 +40,7 @@ export default {
   },
   methods: {
     changeWeight() {
-      // Input type "number" doesn't detect the "-" as a character in a string, so it will allow to pass values like "0-3-3"
-      // I used type "text" and replaced all potentially letters and special characters with 0
-      event.target.value = +event.target.value.replace(
-        /[a-zA-Z!@#\$%\^\&*\)\(+=._-]/gi,
-        0
-      );
+      !/^\d+$/.test(event.target.value) ? (event.target.value = "") : "";
       this.$store.dispatch("ingredients/checkWeight", {
         name: this.ingredient.name,
         price: this.ingredient.price_per_unit,
@@ -54,6 +49,10 @@ export default {
         weightPerUnit: this.ingredient.weight,
         index: this.index
       });
+    },
+    inputBlur() {
+      this.placeholder = 0;
+      !+event.target.value ? (event.target.value = "") : "";
     }
   },
   computed: {
