@@ -19,7 +19,7 @@
 </template>
 <script>
 import BaseButton from "../../components/BaseButton/BaseButton.vue";
-import IconPizza from "../../components/Icons/IconPizza.vue";
+import IconPizza from "../../components/Icons/IconPizza/IconPizza.vue";
 export default {
   name: "welcome",
   components: {

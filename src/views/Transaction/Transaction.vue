@@ -26,7 +26,7 @@
 <script>
 import PizzaCheckout from "../../components/PizzaCheckout/PizzaCheckout.vue";
 import BaseButton from "../../components/BaseButton/BaseButton.vue";
-import IconPizza from "../../components/Icons/IconPizza";
+import IconPizza from "../../components/Icons/IconPizza/IconPizza";
 export default {
   name: "transaction",
   components: {

@@ -18,7 +18,7 @@
   </header>
 </template>
 <script>
-import IconPizza from "../Icons/IconPizza.vue";
+import IconPizza from "../Icons/IconPizza/IconPizza.vue";
 export default {
   components: {
     IconPizza
