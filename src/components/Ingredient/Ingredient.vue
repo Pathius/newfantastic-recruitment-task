@@ -57,7 +57,10 @@ export default {
         event.target.value = this.quantity;
       } else {
         // Check if value has any unexpected invalid chars
-        !/^\d+$/.test(event.target.value) ? (event.target.value = "") : "";
+        !/^\d+$/.test(event.target.value) ||
+        (event.target.value.startsWith("0") && event.target.value.length > 1)
+          ? (event.target.value = "")
+          : "";
         this.quantity = event.target.value;
       }
       this.$store.dispatch("ingredients/checkWeight", {
