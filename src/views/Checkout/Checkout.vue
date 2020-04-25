@@ -7,7 +7,7 @@
     <section class="checkout__panel">
       <PizzaCheckout />
     </section>
-    <section class="checkout__buttons">
+    <section class="checkout__buttons" v-if="anyOrder">
       <BaseButton
         @click.native="addAnother"
         :transparent="true"
@@ -20,6 +20,14 @@
         class="checkout__button"
       >
         Zakończ zamówienie
+      </BaseButton>
+    </section>
+    <section class="checkout__buttons" v-else>
+      <BaseButton
+        @click.native="$router.push('/pizza');"
+        class="checkout__button"
+      >
+        Stwórz własną pizzę
       </BaseButton>
     </section>
   </section>
@@ -41,6 +49,11 @@ export default {
       this.$store.commit('pizza/newPizza');
       this.$store.commit('ingredients/newPizza');
       this.$router.push('/pizza');
+    },
+  },
+  computed: {
+    anyOrder() {
+      return this.$store.state.pizza.orderedPizzas.length;
     },
   },
 };

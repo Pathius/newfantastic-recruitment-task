@@ -18,6 +18,15 @@
         font-size: 19px;
         line-height: 23px;
       }
+      &-cancel{
+        vertical-align: top;
+        cursor: pointer;
+        font-size: 16px;
+        color: #d32744;
+        @media screen and (max-width: 768px) {
+          font-size: 13px;
+        }
+      }
     }
     &-ingredient {
       font-style: normal;
@@ -49,6 +58,12 @@
       }
       &-total{
         color: #d32744;
+      }
+      &-invalid{
+        @extend .checkout__product-price;
+        display: block;
+        text-align: center;
+        font-size: 18px;
       }
     }
   }

@@ -44,6 +44,19 @@ export default {
       state.activeOption = '';
       state.sizePrice = 0;
     },
+    removePizza: (state, payload) => {
+      let index = 0;
+      let cost = 0;
+      // Find index
+      for (const [i, pizza] of state.orderedPizzas.entries()) {
+        if (pizza.id === payload) {
+          cost = pizza.wholePrice;
+          index = i;
+        } 
+      }
+      state.orderedPizzas.splice(index, 1);
+      state.orderedPizzasCost -= cost;
+    },
     changeOption: (state, payload) => {
       state.activeOption = payload;
       state.sizePrice = state.activeOption.price;
@@ -65,11 +78,18 @@ export default {
   },
   actions: {
     addPizza: ({ state, commit, rootState }) => {
+      const usedIds = state.orderedPizzas.map(pizza => pizza.id);
+      let id = (Math.random() * 1000).toFixed();
+      while (usedIds.includes(id)) {
+        id = (Math.random() * 100).toFixed();
+      }
       commit('addPizza', {
         name: state.activeOption.name,
         sizePrice: state.activeOption.price,
         ingredientsPrice: rootState.ingredients.ingredientsCost,
+        wholePrice: +state.activeOption.price + +rootState.ingredients.ingredientsCost,
         ingredients: rootState.ingredients.ingredientsUsed,
+        id,
       });
       commit('resetPrice');
       commit('ingredients/resetPrice', null, { root: true });
