@@ -4,7 +4,7 @@
   justify-content: center;
   background-color: white;
   margin-bottom: 16px;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1000px) {
     width: 90%;
     justify-content: center;
   }
@@ -15,8 +15,11 @@
     border-radius: 50%;
     background: #c4c4c4;
     margin: 20px 32px 20px 64px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 600px) {
       display: none;
+    }
+    @media screen and (max-width: 768px) {
+      margin: 20px 32px 20px 10px;
     }
   }
   &__name {
@@ -30,7 +33,7 @@
     @media screen and (max-width: 768px) {
       width: 150px;
       font-size: 23px;
-      margin-left: 20px;
+      margin-left: 15px;
       margin-right: 5px;
     }
   }
@@ -60,7 +63,7 @@
     @media screen and (max-width: 768px) {
       width: 92px;
       text-align: right;
-      margin: 0 24px 0px 0;
+      margin: 0 15px 0px 10px;
     }
   }
 }
