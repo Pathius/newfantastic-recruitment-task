@@ -15,7 +15,12 @@
   &-icon {
     font-size: 26px;
     display: inline-block;
-    transition: transform 0.3s;
+    transition: 0.3s;
     cursor: pointer;
+    &-invalid {
+      @extend .quantity__icons-icon;
+      color: #e42b2b;
+      cursor: not-allowed;
+    }
   }
 }

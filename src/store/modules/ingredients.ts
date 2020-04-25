@@ -118,4 +118,12 @@ export default {
       commit("setIngredientsPrice");
     },
   },
+  getters: {
+    freeWeight({ ingredientsWeight }, getters, rootState) {
+      return (
+        rootState.pizza.activeOption.maximum_ingredients_weight -
+        ingredientsWeight
+      );
+    },
+  },
 };

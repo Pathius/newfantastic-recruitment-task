@@ -8,10 +8,14 @@
     <h3 class="ingredient__name">
       {{ingredient.name}}
     </h3>
-    <QuantityIcons @changeQuantity="changeQuantity($event)" />
+    <QuantityIcons
+      :freeSpace="freeSpace"
+      :isEmpty="isEmpty"
+      @changeQuantity="changeQuantity($event)"
+    />
     <input
       type="number"
-      class="ingredient__value"
+      :class="freeSpace ? 'ingredient__value' : 'ingredient__value-invalid'"
       @focus="placeholder = ''"
       @blur="blurInput"
       :placeholder="placeholder"
@@ -20,6 +24,9 @@
     />
     <p class="ingredient__price">
       {{ingredient.price_per_unit}}zł/szt
+    </p>
+    <p :class="freeSpace ? 'ingredient__message-invalid' : 'ingredient__message-invalid--visible'">
+      Wykorzystano limit wagi dla tego składniku
     </p>
   </section>
 </template>
@@ -83,6 +90,11 @@ export default {
   computed: {
     imageUrl() {
       return require(`../../assets/ingredients/${this.ingredient.photo}`);
+    },
+    freeSpace() {
+      return (
+        this.$store.getters["ingredients/freeWeight"] > this.ingredient.weight
+      );
     }
   }
 };

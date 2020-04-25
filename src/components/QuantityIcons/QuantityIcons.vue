@@ -8,7 +8,7 @@
     </span>
     /
     <span
-      class="quantity__icons-icon"
+      :class="freeSpace ? 'quantity__icons-icon' : 'quantity__icons-icon-invalid'"
       @click="changeQuantity('plus')"
     >
       +
@@ -17,6 +17,12 @@
 </template>
 <script>
 export default {
+  props: {
+    freeSpace: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     changeQuantity(operation) {
       this.$emit("changeQuantity", operation);
