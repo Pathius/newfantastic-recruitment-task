@@ -9,24 +9,21 @@
     <p class="welcome__invite text-gray">
       Kliknij START aby rozpocząć
     </p>
-    <BaseButton
-      @click.native="$router.push('/pizza')"
-      class="welcome__button"
-    >
+    <BaseButton @click.native="$router.push('/pizza')" class="welcome__button">
       Start
     </BaseButton>
   </section>
 </template>
 <script>
-import BaseButton from "../../components/BaseButton/BaseButton.vue";
-import IconPizza from "../../components/Icons/IconPizza/IconPizza.vue";
+import BaseButton from '../../components/BaseButton/BaseButton.vue';
+import IconPizza from '../../components/Icons/IconPizza/IconPizza.vue';
+
 export default {
-  name: "welcome",
+  name: 'welcome',
   components: {
     BaseButton,
-    IconPizza
-  }
+    IconPizza,
+  },
 };
 </script>
-<style scoped lang="scss" src="./Welcome.scss">
-</style>
+<style scoped lang="scss" src="./Welcome.scss"></style>

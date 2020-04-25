@@ -3,28 +3,28 @@ export default {
   state: {
     sizes: [
       {
-        name: "Medium",
-        size: "32",
-        price: "26.90",
+        name: 'Medium',
+        size: '32',
+        price: '26.90',
         maximum_ingredients_weight: 4,
-        photo: "Medium.jpg",
+        photo: 'Medium.jpg',
       },
       {
-        name: "Max",
-        size: "45",
-        price: "34.90",
+        name: 'Max',
+        size: '45',
+        price: '34.90',
         maximum_ingredients_weight: 6,
-        photo: "Max.jpg",
+        photo: 'Max.jpg',
       },
       {
-        name: "Mega",
-        size: "60",
-        price: "51.90",
+        name: 'Mega',
+        size: '60',
+        price: '51.90',
         maximum_ingredients_weight: 8,
-        photo: "Mega.jpg",
+        photo: 'Mega.jpg',
       },
     ],
-    activeOption: "",
+    activeOption: '',
     sizePrice: 0,
     orderedPizzas: [],
     orderedPizzasCost: 0,
@@ -34,14 +34,14 @@ export default {
   mutations: {
     setData: (state, payload) => (state.sizes = payload),
     initialValues: (state) => {
-      state.activeOption = "";
+      state.activeOption = '';
       state.sizePrice = 0;
       state.orderedPizzas = [];
       state.orderedPizzasCost = 0;
     },
     resetPrice: (state) => (state.sizePrice = 0),
     newPizza: (state) => {
-      state.activeOption = "";
+      state.activeOption = '';
       state.sizePrice = 0;
     },
     changeOption: (state, payload) => {
@@ -54,7 +54,7 @@ export default {
       state.orderedPizzasCost += payload.ingredientsPrice;
     },
     subtractSecond: (state) => {
-      if (state.timeLeft == 0) {
+      if (state.timeLeft === 0) {
         clearInterval(state.intervalId);
       } else state.timeLeft--;
     },
@@ -65,34 +65,31 @@ export default {
   },
   actions: {
     addPizza: ({ state, commit, rootState }) => {
-      commit("addPizza", {
+      commit('addPizza', {
         name: state.activeOption.name,
         sizePrice: state.activeOption.price,
         ingredientsPrice: rootState.ingredients.ingredientsCost,
         ingredients: rootState.ingredients.ingredientsUsed,
       });
-      commit("resetPrice");
-      commit("ingredients/resetPrice", null, { root: true });
+      commit('resetPrice');
+      commit('ingredients/resetPrice', null, { root: true });
     },
   },
   getters: {
-    price: (state, getters, rootState) => {
-      return (
-        state.orderedPizzasCost +
-        +state.sizePrice +
-        rootState.ingredients.ingredientsCost
-      );
-    },
+    price: (state, getters, rootState) => (
+      state.orderedPizzasCost
+      + +state.sizePrice
+      + rootState.ingredients.ingredientsCost
+    ),
     timeLeft: ({ timeLeft }) => {
       if (timeLeft > 60) {
         return `dotrzeć do Ciebie za ${Math.floor(
-          timeLeft / 60
+          timeLeft / 60,
         )}min ${timeLeft % 60}s`;
-      } else if (timeLeft > 0) {
+      } if (timeLeft > 0) {
         return `dotrzeć do Ciebie za ${timeLeft}s`;
-      } else {
-        return `już do Ciebie dotrzeć. Smacznego!`;
       }
+      return 'już do Ciebie dotrzeć. Smacznego!';
     },
   },
 };

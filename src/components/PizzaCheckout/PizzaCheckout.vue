@@ -46,9 +46,9 @@ export default {
       return this.$store.state.pizza.orderedPizzas;
     },
     price() {
-      return this.$store.getters["pizza/price"];
-    }
-  }
+      return this.$store.getters['pizza/price'];
+    },
+  },
 };
 </script>
 <style scoped lang="scss" src="./PizzaCheckout.scss">

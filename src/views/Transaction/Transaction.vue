@@ -7,12 +7,9 @@
       Dziękujemy!
     </h2>
     <p class="transaction__info">
-      Twoje zamówienie za {{price | readablePrice}} zł powinno {{timeLeft}}
+      Twoje zamówienie za {{ price | readablePrice }} zł powinno {{ timeLeft }}
     </p>
-    <BaseButton
-      @click.native="goHomePage"
-      class="button transaction__button"
-    >
+    <BaseButton @click.native="goHomePage" class="button transaction__button">
       Wróć do strony głównej
     </BaseButton>
     <span class="transaction__subtitle">
@@ -24,46 +21,46 @@
   </div>
 </template>
 <script>
-import PizzaCheckout from "../../components/PizzaCheckout/PizzaCheckout.vue";
-import BaseButton from "../../components/BaseButton/BaseButton.vue";
-import IconPizza from "../../components/Icons/IconPizza/IconPizza";
+import PizzaCheckout from '../../components/PizzaCheckout/PizzaCheckout.vue';
+import BaseButton from '../../components/BaseButton/BaseButton.vue';
+import IconPizza from '../../components/Icons/IconPizza/IconPizza.vue';
+
 export default {
-  name: "transaction",
+  name: 'transaction',
   components: {
     PizzaCheckout,
     BaseButton,
-    IconPizza
+    IconPizza,
   },
   data() {
     return {
-      intervalId: 0
+      intervalId: 0,
     };
   },
   computed: {
     price() {
-      return this.$store.getters["pizza/price"];
+      return this.$store.getters['pizza/price'];
     },
     timeLeft() {
-      return this.$store.getters["pizza/timeLeft"];
-    }
+      return this.$store.getters['pizza/timeLeft'];
+    },
   },
   methods: {
     goHomePage() {
-      this.$store.commit("pizza/initialValues");
-      this.$store.commit("ingredients/initialValues");
-      this.$router.push("/");
-    }
+      this.$store.commit('pizza/initialValues');
+      this.$store.commit('ingredients/initialValues');
+      this.$router.push('/');
+    },
   },
   created() {
     const that = this;
-    this.$store.state.pizza.intervalId = setInterval(function() {
-      that.$store.commit("pizza/subtractSecond");
+    this.$store.state.pizza.intervalId = setInterval(() => {
+      that.$store.commit('pizza/subtractSecond');
     }, 1000);
   },
   beforeDestroy() {
-    this.$store.commit("pizza/resetTimer");
-  }
+    this.$store.commit('pizza/resetTimer');
+  },
 };
 </script>
-<style scoped lang="scss" src="./Transaction.scss">
-</style>
+<style scoped lang="scss" src="./Transaction.scss"></style>

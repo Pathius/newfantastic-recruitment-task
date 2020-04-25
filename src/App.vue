@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <transition
-      name="slide"
-      mode="out-in"
-      appear
-    >
+    <transition name="slide" mode="out-in" appear>
       <router-view />
     </transition>
     <TheFooter />
@@ -12,13 +8,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import TheFooter from "./components/TheFooter/TheFooter.vue";
+import Vue from 'vue';
+import TheFooter from './components/TheFooter/TheFooter.vue';
+
 export default Vue.extend({
-  name: "app",
+  name: 'app',
   components: {
-    TheFooter
-  }
+    TheFooter,
+  },
 });
 </script>
 
@@ -26,7 +23,7 @@ export default Vue.extend({
 * {
   margin: 0;
   padding: 0;
-  font-family: "Rubik";
+  font-family: 'Rubik';
 }
 html {
   height: 100%;

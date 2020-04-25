@@ -5,20 +5,15 @@
       Wybierz rozmiar pizzy
     </h2>
     <section class="glider pizza__choose">
-      <PizzaOption
-        v-for="(size, index) in sizes"
-        :key="index"
-        :size="size"
-      />
+      <PizzaOption v-for="(size, index) in sizes" :key="index" :size="size" />
     </section>
-    <BaseButton
-      class="pizza__button"
-      @click.native="goBack"
-    >
+    <BaseButton class="pizza__button" @click.native="goBack">
       Wstecz
     </BaseButton>
     <BaseButton
-      :class="isChoosen ? 'button pizza__button' : 'button-disabled pizza__button'"
+      :class="
+        isChoosen ? 'button pizza__button' : 'button-disabled pizza__button'
+      "
       :disabled="!isChoosen"
       @click.native="$router.push('/customize')"
     >
@@ -27,32 +22,35 @@
   </section>
 </template>
 <script>
-import Header from "../../components/Header/Header.vue";
-import PizzaOption from "../../components/PizzaOption/PizzaOption.vue";
-import BaseButton from "../../components/BaseButton/BaseButton.vue";
+import Header from '../../components/Header/Header.vue';
+import PizzaOption from '../../components/PizzaOption/PizzaOption.vue';
+import BaseButton from '../../components/BaseButton/BaseButton.vue';
 
 export default {
-  name: "pizza",
+  name: 'pizza',
   components: {
     Header,
     PizzaOption,
-    BaseButton
+    BaseButton,
   },
   computed: {
     sizes() {
       return this.$store.state.pizza.sizes;
     },
     isChoosen() {
-      return this.$store.state.pizza.activeOption !== "";
-    }
+      return this.$store.state.pizza.activeOption !== '';
+    },
   },
   methods: {
     goBack() {
-      this.$store.state.pizza.activeOption = "";
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
-    }
-  }
+      this.$store.state.pizza.activeOption = '';
+      if (window.history.length) {
+        this.$router.push('/');
+      } else {
+        this.$router.go(-1);
+      }
+    },
+  },
 };
 </script>
-<style scoped lang="scss" src="./Pizza.scss">
-</style>
+<style scoped lang="scss" src="./Pizza.scss"></style>

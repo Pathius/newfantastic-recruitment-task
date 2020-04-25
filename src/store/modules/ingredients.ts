@@ -3,40 +3,40 @@ export default {
   state: {
     ingredients: [
       {
-        name: "Szynka",
-        price_per_unit: "2",
+        name: 'Szynka',
+        price_per_unit: '2',
         weight: 0.4,
-        photo: "Ham.jpg",
+        photo: 'Ham.jpg',
       },
       {
-        name: "Ser",
-        price_per_unit: "3",
+        name: 'Ser',
+        price_per_unit: '3',
         weight: 0.5,
-        photo: "Cheese.jpg",
+        photo: 'Cheese.jpg',
       },
       {
-        name: "Salami",
-        price_per_unit: "4",
+        name: 'Salami',
+        price_per_unit: '4',
         weight: 0.4,
-        photo: "Salami.jpg",
+        photo: 'Salami.jpg',
       },
       {
-        name: "Kurczak",
-        price_per_unit: "3",
+        name: 'Kurczak',
+        price_per_unit: '3',
         weight: 0.3,
-        photo: "Chicken.jpg",
+        photo: 'Chicken.jpg',
       },
       {
-        name: "Pieczarki",
-        price_per_unit: "3",
+        name: 'Pieczarki',
+        price_per_unit: '3',
         weight: 0.3,
-        photo: "Mushrooms.jpg",
+        photo: 'Mushrooms.jpg',
       },
       {
-        name: "Oliwki",
-        price_per_unit: "5",
+        name: 'Oliwki',
+        price_per_unit: '5',
         weight: 0.2,
-        photo: "Olives.jpg",
+        photo: 'Olives.jpg',
       },
     ],
     ingredientsUsed: {},
@@ -59,7 +59,9 @@ export default {
       state.ingredientsCost = 0;
     },
     resetPrice: (state) => (state.ingredientsCost = 0),
-    setUsedIngredient: (state, { index, name, price, units }) => {
+    setUsedIngredient: (state, {
+      index, name, price, units,
+    }) => {
       state.ingredientsUsed[index] = {
         name,
         price,
@@ -87,17 +89,19 @@ export default {
   actions: {
     checkWeight: (
       { state, commit, rootState },
-      { name, price, units, weight, weightPerUnit, index }
+      {
+        name, price, units, weight, weightPerUnit, index 
+      }
     ) => {
       // Check max free units possible to use
-      let maxWeight = rootState.pizza.activeOption.maximum_ingredients_weight;
+      const maxWeight = rootState.pizza.activeOption.maximum_ingredients_weight;
       let freeWeight = maxWeight - state.ingredientsWeight;
       if (state.ingredientsUsed[index]) {
-        let usedWeight = state.ingredientsUsed[index].units * weightPerUnit;
+        const usedWeight = state.ingredientsUsed[index].units * weightPerUnit;
         freeWeight = maxWeight - (state.ingredientsWeight - usedWeight);
       }
       if (freeWeight < weight) {
-        let freeUnits = Math.floor(freeWeight / weightPerUnit);
+        const freeUnits = Math.floor(freeWeight / weightPerUnit);
         event.target.value = freeUnits;
         units = freeUnits;
         weight = weightPerUnit * freeUnits;
@@ -105,24 +109,24 @@ export default {
       // Check if units are equal or lower than 0
       // If so delete their element in igredientsUsed object
       if (units > 0) {
-        commit("setUsedIngredient", {
+        commit('setUsedIngredient', {
           index,
           name,
           price,
           units,
         });
       } else {
-        commit("deleteUnusedIngredient", index);
+        commit('deleteUnusedIngredient', index);
       }
-      commit("setIngredientsWeight", { index, weight });
-      commit("setIngredientsPrice");
+      commit('setIngredientsWeight', { index, weight });
+      commit('setIngredientsPrice');
     },
   },
   getters: {
     freeWeight({ ingredientsWeight }, getters, rootState) {
       return (
-        rootState.pizza.activeOption.maximum_ingredients_weight -
-        ingredientsWeight
+        rootState.pizza.activeOption.maximum_ingredients_weight
+        - ingredientsWeight
       );
     },
   },

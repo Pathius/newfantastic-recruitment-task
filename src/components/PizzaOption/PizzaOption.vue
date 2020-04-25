@@ -33,39 +33,40 @@
   </div>
 </template>
 <script>
-import BaseButton from "../BaseButton/BaseButton.vue";
+import BaseButton from '../BaseButton/BaseButton.vue';
+
 export default {
   components: {
-    BaseButton
+    BaseButton,
   },
   props: {
     size: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     isActive() {
       return (
-        this.$store.state.pizza.activeOption.name === this.size.name ||
-        this.$store.state.pizza.activeOption == ""
+        this.$store.state.pizza.activeOption.name === this.size.name
+        || this.$store.state.pizza.activeOption === ''
       );
     },
     isChosen() {
       return this.$store.state.pizza.activeOption.name === this.size.name;
     },
     price() {
-      return this.$store.getters["pizza/price"];
+      return this.$store.getters['pizza/price'];
     },
     imageUrl() {
       return require(`../../assets/sizes/${this.size.photo}`);
-    }
+    },
   },
   methods: {
     choose() {
-      this.$store.commit("pizza/changeOption", this.size);
-    }
-  }
+      this.$store.commit('pizza/changeOption', this.size);
+    },
+  },
 };
 </script>
 <style scoped lang="scss" src="./PizzaOption.scss">

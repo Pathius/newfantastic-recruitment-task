@@ -25,25 +25,24 @@
   </section>
 </template>
 <script>
-import Header from "../../components/Header/Header.vue";
-import PizzaCheckout from "../../components/PizzaCheckout/PizzaCheckout.vue";
-import BaseButton from "../../components/BaseButton/BaseButton.vue";
+import Header from '../../components/Header/Header.vue';
+import PizzaCheckout from '../../components/PizzaCheckout/PizzaCheckout.vue';
+import BaseButton from '../../components/BaseButton/BaseButton.vue';
 
 export default {
-  name: "checkout",
+  name: 'checkout',
   components: {
     Header,
     PizzaCheckout,
-    BaseButton
+    BaseButton,
   },
   methods: {
     addAnother() {
-      this.$store.commit("pizza/newPizza");
-      this.$store.commit("ingredients/newPizza");
-      this.$router.push("/pizza");
-    }
-  }
+      this.$store.commit('pizza/newPizza');
+      this.$store.commit('ingredients/newPizza');
+      this.$router.push('/pizza');
+    },
+  },
 };
 </script>
-<style scoped lang="scss" src="./Checkout.scss">
-</style>
+<style scoped lang="scss" src="./Checkout.scss"></style>

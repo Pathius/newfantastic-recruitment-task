@@ -1,8 +1,5 @@
 <template>
-  <button
-    :disabled="disabled"
-    :class="styling"
-  >
+  <button :disabled="disabled" :class="styling">
     <slot></slot>
   </button>
 </template>
@@ -11,27 +8,23 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      required: false
+      required: false,
     },
     transparent: {
       type: Boolean,
-      required: false
+      required: false,
     },
-    disabled: {
-      type: Boolean,
-      required: false
-    }
   },
   computed: {
     styling() {
-      return this.disabled
-        ? "button-disabled"
-        : this.transparent
-        ? "button-transparent"
-        : "button";
-    }
-  }
+      if (this.disabled) {
+        return 'button-disabled';
+      } if (this.transparent) {
+        return 'button-transparent';
+      }
+      return 'button';
+    },
+  },
 };
 </script>
-<style scoped lang="scss" src="./BaseButton.scss">
-</style>
+<style scoped lang="scss" src="./BaseButton.scss"></style>
