@@ -6,7 +6,7 @@
     <h1 class="welcome__title title">
       WITAJ W KREATORZE PIZZY!
     </h1>
-    <p class="welcome__invite text-gray">
+    <p class="welcome__invite">
       Kliknij START aby rozpocząć
     </p>
     <BaseButton @click.native="$router.push('/pizza')" class="welcome__button">
