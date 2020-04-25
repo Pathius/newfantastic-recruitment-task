@@ -45,9 +45,9 @@ export default {
     goBack() {
       this.$store.state.pizza.activeOption = '';
       if (window.history.length) {
-        this.$router.push('/');
-      } else {
         this.$router.go(-1);
+      } else {
+        this.$router.push('/');
       }
     },
   },
