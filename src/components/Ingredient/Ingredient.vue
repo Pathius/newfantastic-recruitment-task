@@ -10,7 +10,6 @@
     </h3>
     <QuantityIcons
       :freeSpace="freeSpace"
-      :isEmpty="isEmpty"
       @changeQuantity="changeQuantity($event)"
     />
     <input
