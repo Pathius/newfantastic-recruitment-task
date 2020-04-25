@@ -37,6 +37,12 @@
       margin-left: 15px;
       margin-right: 5px;
     }
+    @media screen and (max-width: 350px) {
+      width: 150px;
+      font-size: 18px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
   &__value {
     width: 40px;
@@ -55,6 +61,11 @@
     @media screen and (max-width: 768px) {
       margin: 40px 0;
     }
+    @media screen and (max-width: 350px) {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+    }
     &-invalid {
       @extend .ingredient__value;
       border: 2px solid #e42b2b;
@@ -70,6 +81,9 @@
       width: 92px;
       text-align: right;
       margin: 0 15px 0px 10px;
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 18px;
     }
   }
   &__message-invalid {

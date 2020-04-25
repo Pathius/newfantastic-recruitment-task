@@ -11,6 +11,9 @@
   @media screen and (max-width: 767px) {
     margin-right: 5px;
   }
+  @media screen and (max-width: 350px) {
+    font-size: 18px;
+  }
 
   &-icon {
     font-size: 26px;
@@ -21,6 +24,9 @@
       @extend .quantity__icons-icon;
       color: #e42b2b;
       cursor: not-allowed;
+    }
+    @media screen and (max-width: 350px) {
+      font-size: 22px;
     }
   }
 }

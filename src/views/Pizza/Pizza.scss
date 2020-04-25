@@ -4,7 +4,6 @@
   &__title {
     margin: 48px 0 52px;
     @media screen and (max-width: 768px) {
-      font-size: 32px;
       padding: 0 40px;
       margin: 0 0 36px;
     }
@@ -29,6 +28,9 @@
       width: 160px;
       height: 48px;
       margin: 52px 8px 81px;
+    }
+    @media screen and (max-width: 350px) {
+      width: 120px;
     }
   }
 }

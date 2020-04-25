@@ -1,51 +1,57 @@
-.title{
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
-    text-transform: uppercase;
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  text-transform: uppercase;
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 26px;
+  }
+}
+
+.logo {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 70px;
+  &-header {
+    @extend .logo;
     @media screen and (max-width: 768px) {
-        font-size: 32px;
+      font-size: 40px;
+      line-height: 47px;
     }
+  }
 }
 
-.logo{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 60px;
-    line-height: 70px;
-    &-header{
-     @extend .logo;
-     @media screen and (max-width: 768px) {
-        font-size: 40px;
-        line-height: 47px;
-      }
-    }
-}
-
-.button{
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: bold;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    &-disabled{
-        @extend .button;
-        opacity: .4;
-        cursor: not-allowed;
-    }
-    &-transparent{
-        @extend .button;
-        background: transparent;
-        border: 1px solid black;
-        color: black;
-    }
+.button {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  &-disabled {
+    @extend .button;
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  &-transparent {
+    @extend .button;
+    background: transparent;
+    border: 1px solid black;
+    color: black;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 18px;
+  }
 }
 
 // COLORS
 .text-gray {
-    color: #7b7b7b;
-  }
+  color: #7b7b7b;
+}
