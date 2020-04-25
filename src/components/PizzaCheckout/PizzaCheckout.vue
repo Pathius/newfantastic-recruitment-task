@@ -12,6 +12,7 @@
           <span
             @click="removePizza(pizza.id)"
             class="checkout__product-size-cancel"
+            v-if="$route.name === 'checkout'"
           >
             X
           </span>
