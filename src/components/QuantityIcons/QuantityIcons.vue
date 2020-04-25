@@ -20,14 +20,14 @@ export default {
   props: {
     freeSpace: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     changeQuantity(operation) {
-      this.$emit("changeQuantity", operation);
-    }
-  }
+      this.$emit('changeQuantity', operation);
+    },
+  },
 };
 </script>
 <style scoped lang="scss" src="./QuantityIcons.scss">
