@@ -10,6 +10,9 @@
   @media screen and (max-width: 768px) {
     margin: 0 4px;
   }
+  @media screen and (max-width: 340px) {
+    max-width: 250px;
+  }
   &-disabled {
     opacity: 0.4;
   }
