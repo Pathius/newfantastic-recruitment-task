@@ -5,7 +5,7 @@ Demo: https://pathius.github.io/recruitment-task/
 
 ## Description
 
-This application was originally created for recruitment process at newfantastic company. After some time, I decided to spend some time and improve it. It is a user friendly system of creating and ordering pizzas.
+It is a user friendly system of creating and ordering pizzas. Application was originally created for recruitment process at newfantastic company. After some time, I decided to spend some time and improve it.
 
 ## Release History
 
