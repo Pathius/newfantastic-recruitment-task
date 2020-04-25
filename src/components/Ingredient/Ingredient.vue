@@ -93,7 +93,8 @@ export default {
     },
     freeSpace() {
       return (
-        this.$store.getters["ingredients/freeWeight"] > this.ingredient.weight
+        this.$store.getters["ingredients/freeWeight"].toFixed(2) >=
+        this.ingredient.weight
       );
     }
   }
