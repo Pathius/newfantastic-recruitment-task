@@ -30,7 +30,7 @@
       </p>
     </section>
     <h3 class="checkout__product-price">
-      <span>
+      <span class="checkout__product-price-total">
         Łącznie
       </span>
       <span class="text-gray">
