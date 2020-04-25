@@ -12,8 +12,8 @@
   padding: 0 24px;
   margin-bottom: 48px;
   @media screen and (max-width: 768px) {
-    justify-content: space-between;
     margin-bottom: 40px;
+    padding: 0 0px;
   }
   &__back {
     font-style: normal;
@@ -24,7 +24,7 @@
     @media screen and (max-width: 768px) {
       font-size: 13px;
       line-height: 15px;
-      padding-left: 20px;
+      padding-left: 10px;
     }
   }
   &__logo {
