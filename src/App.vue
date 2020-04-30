@@ -33,7 +33,7 @@ body {
   padding: 0;
   margin: 0;
   position: relative;
-  background: #f5f5f5;
+  background: #e8e8e8;
   overflow-x: hidden;
 }
 
